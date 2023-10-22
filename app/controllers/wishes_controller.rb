@@ -21,6 +21,20 @@ class WishesController < ApplicationController
     end
   end
 
+  def edit
+    @wish = Wish.find(params[:id])
+  end
+
+  def update
+    @wish = Wish.find(params[:id])
+
+    if @wish.update(wish_params)
+      redirect_to @wish
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
   def wish_params
     params.require(:wish).permit(:title, :body)
