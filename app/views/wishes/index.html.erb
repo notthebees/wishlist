@@ -3,7 +3,7 @@
 <ul>
   <% @wishes.each do |wish| %>
     <li>
-      <%= wish.title %>
+      <%= link_to wish.title, wish %>
     </li>
   <% end %>
 </ul>
