@@ -4,4 +4,8 @@
 
 <ul>
   <li><%= link_to "Edit", edit_wish_path(@wish) %></li>
+  <li><%= link_to "Delete", wish_path(@wish), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Delete this wish?"
+                  } %></li>
 </ul>
