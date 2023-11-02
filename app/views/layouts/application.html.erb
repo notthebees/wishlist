@@ -11,6 +11,33 @@
   </head>
 
   <body>
+
+    <div class="header">
+      <div class="container">
+        <%= link_to(root_path) do %>
+          <h1>Home</h1>
+        <% end %>
+
+        <div class="nav">
+          
+          <% if current_user %>
+            <ul>
+              <li><%= current_user.email %></li>
+              <li><%= button_to "Log out", logout_path, method: "delete", class: 'btn btn-small' %></li>
+            </ul>
+          <% else %>
+            <ul>
+              <li><%= link_to "Login", 'login' %></li>
+              <li><%= link_to "Signup", 'signup' %></li>
+            </ul>
+          <% end %>
+          
+        </div>
+      </div>
+    </div>
+
+
     <%= yield %>
+
   </body>
 </html>
