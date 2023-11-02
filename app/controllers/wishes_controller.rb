@@ -46,6 +46,6 @@ class WishesController < ApplicationController
 
   private
   def wish_params
-    params.require(:wish).permit(:title, :body)
+    [params.require(:wish).permit(:title, :body), user_id: current_user.id].reduce(:merge)
   end
 end
