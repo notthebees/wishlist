@@ -1,4 +1,6 @@
 class WishesController < ApplicationController
+  before_action :require_user, except: [:index]
+
   def index
     @wishes = Wish.all
   end
