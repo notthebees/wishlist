@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :require_user
   skip_before_action :verify_authenticity_token
 
   def show
@@ -21,13 +22,18 @@ class UsersController < ApplicationController
 
   def add_friend
     @user = User.find(params[:id])
+
+    unless @user == current_user
+      head :unauthorized
+      return
+    end
+
     @friend = User.find(params[:friend_id])
 
     @user.friends << @friend
     @friend.friends << @user
 
     redirect_to @user, notice: 'Friend added successfully.'
-    end
   end
 
   private
