@@ -38,7 +38,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_11_141308) do
     t.index ["user_id"], name: "index_wishes_on_user_id"
   end
 
-  add_foreign_key "friendships", "friends"
   add_foreign_key "friendships", "users"
+  add_foreign_key "friendships", "users", column: "friend_id"
   add_foreign_key "wishes", "users"
 end
