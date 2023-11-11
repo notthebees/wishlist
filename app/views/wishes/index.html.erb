@@ -3,9 +3,9 @@
 <ul>
   <% @wishes.each do |wish| %>
     <li>
-      <%= link_to wish.title, wish %>
+      <%= link_to wish.title, user_wish_path(@user, wish) %>
     </li>
   <% end %>
 </ul>
 
-<%= link_to "New Wish", new_wish_path %>
+<%= link_to "New Wish", new_user_wish_path(@user) %>

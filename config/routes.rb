@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   root "wishes#index"
 
-  resources :wishes
-
   get 'signup' => 'users#new'
-  resources :users
+  resources :users do
+    resources :wishes
+  end
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
