@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "wishes#index"
+  root "home#index"
 
   get 'signup' => 'users#new'
   resources :users do
