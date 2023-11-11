@@ -24,11 +24,9 @@ class UsersController < ApplicationController
     @friend = User.find(params[:friend_id])
 
     @user.friends << @friend
+    @friend.friends << @user
 
-    if @user.save
-      redirect_to @user, notice: 'Friend added successfully.'
-    else
-      redirect_to @user, alert: 'Failed to add friend.'
+    redirect_to @user, notice: 'Friend added successfully.'
     end
   end
 

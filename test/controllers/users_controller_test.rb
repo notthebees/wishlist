@@ -11,5 +11,6 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to user_path(user1)
     assert_equal "Friend added successfully.", flash[:notice]
     assert user1.friends.include?(user2)
+    assert user2.friends.include?(user1)
   end
 end
