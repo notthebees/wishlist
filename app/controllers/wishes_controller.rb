@@ -43,7 +43,7 @@ class WishesController < ApplicationController
   private
 
   def set_user
-    @user = current_user
+    @user = User.find(params[:user_id])
   end
 
   def set_wish
