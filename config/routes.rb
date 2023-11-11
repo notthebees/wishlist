@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'signup' => 'users#new'
   resources :users, only: [:new, :create, :show]  do
     resources :wishes
+    post 'add_friend', on: :member
   end
 
   get 'login' => 'sessions#new'

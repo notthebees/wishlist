@@ -12,3 +12,16 @@
     </li>
   <% end %>
 </ul>
+
+<h2>Add a Friend</h2>
+
+<%= form_with url: add_friend_user_path(@user), method: :post do %>
+  <div class="field">
+    <%= label_tag :friend_id, "Friend's ID" %>
+    <%= text_field_tag :friend_id %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag "Add Friend" %>
+  </div>
+<% end %>
