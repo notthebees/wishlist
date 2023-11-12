@@ -1,8 +1,0 @@
-<h1>Welcome</h1>
-
-<% if logged_in? %>
-  <%= link_to "Your Wishes", user_wishes_path(current_user) %>
-<% else %>
-  <%= link_to "Login", login_path %>
-  <%= link_to "Sign Up", signup_path %>
-<% end %>
